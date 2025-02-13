@@ -8,13 +8,13 @@
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f5f5f5;
+    color: white;
+    background-color: black;
 }
 
 /* Navigation */
 nav {
-    background-color: white;
+    background-color: black;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     padding: 1rem 0;
     position: sticky;
@@ -34,7 +34,7 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #333;
+    color: whitesmoke;
 }
 
 .nav-links {
@@ -45,14 +45,14 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-    color: #666;
+    color: white;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #333;
+    color: red;
 }
 
 /* Main content */
@@ -60,6 +60,16 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+}
+/* Lazy spacing */
+.hidden-text {
+    display: none;
+    white-space: pre-line;
+}
+/* code larger */
+
+code {
+    font-size: 1.3em; /* Slightly larger */
 }
 
 /* Hero section */
@@ -91,7 +101,7 @@ main {
 }
 
 .post-card {
-    background: white;
+    background: rgb(18, 18, 18);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -103,12 +113,34 @@ main {
 
 /* Blog posts */
 .blog-post {
-    background: white;
+    background: rgb(18, 18, 18);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin-bottom: 2rem;
 }
+/* Blog image */
+.blog-image {
+    width: 100%; 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+}
+/* spoiler similar to discord */
+.spoiler {
+    background-color: black; 
+    color: black; 
+    padding: 2px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: color 0.5s ease;
+}
+/* reveals spoiler */
+.spoiler.revealed {
+    color: white; 
+    background-color: transparent; 
+}
+
 
 .post-meta {
     color: #666;
@@ -125,7 +157,7 @@ main {
 }
 
 .social-card {
-    background: white;
+    background: black;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -142,7 +174,7 @@ main {
 footer {
     text-align: center;
     padding: 2rem;
-    background: white;
+    background: black;
     margin-top: 4rem;
 }
 
@@ -150,13 +182,17 @@ footer {
 .read-more {
     display: inline-block;
     margin-top: 1rem;
-    color: #333;
+    color: red;
     text-decoration: none;
     font-weight: 500;
 }
 
 .read-more:hover {
     text-decoration: underline;
+}
+h6{
+    font-weight: normal;
+    color: rgb(44, 43, 43);
 }
 
 /* Responsive design */

@@ -3,13 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - MiniBlog</title>
+    <title>Blogs</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const readMoreButtons = document.querySelectorAll(".read-more");
+            
+            readMoreButtons.forEach(button => {
+                button.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    const post = this.parentElement;
+                    const hiddenText = post.querySelector(".hidden-text");
+                    
+                    if (hiddenText.style.display === "none" || hiddenText.style.display === "") {
+                        hiddenText.style.display = "inline";
+                        this.textContent = "Read Less";
+                    } else {
+                        hiddenText.style.display = "none";
+                        this.textContent = "Read More";
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <nav>
         <div class="nav-container">
-            <h1 class="logo">MiniBlog</h1>
+            <h1 class="logo">Blog</h1>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html" class="active">Blog</a></li>
@@ -20,32 +41,74 @@
 
     <main>
         <section class="blog-posts">
-            <h1>Latest Posts</h1>
+            <h1>Latest Posts and CTF write-up's</h1>
             <article class="blog-post">
-                <h2>Getting Started with Minimalism</h2>
-                <div class="post-meta">Posted on March 15, 2024</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+                <h2>BITSCTF write-up HotPause</h2>
+                <div class="post-meta">Posted on February 12, 2025</div>
+                <p>
+                    Write-up for the challenge HotPause for the OSINT category 
+                    <span class="hidden-text" style="display: none;">
+                        
+                        Hello everyone, this is a write-up for the OSINT challenge "HotPause"
+                        in this challenge, we were given a video file named "concert.mp4" and from the downloadable mp4 file, you were also given a host address and a port number which we needed to connect to using netcat 
+
+                        <code>nc chals.bitskreig.in 8000</code>
+
+                        after connecting using netcat, you were prompted with 3 questions, for which you had to use your knowledge of OSINT:
+                        <img src="questions.png" class="blog-image">    
+                        
+                        looking at the first question, the answer can be found with a simple google search by searching for all the cities where the concert was held and after trying all the city names, the answer is "<span class="spoiler" onclick="this.classList.toggle('revealed')">AHMEDABAD</span>"
+                        
+                        For the second question, using google is more than enough as after knowing the city where the concert happened, you can easily find the stadium and where our agent was sitting, after that using the power of inagination and visualisation, you can guess in which block was out agent sitting in.
+                        The answer is "<span class="spoiler" onclick="this.classList.toggle('revealed')">Q3</span>"
+                        
+                        Now for the last question, it may seem a bit overwhelming but trust me it's not.
+                        Firstly you need to know how the wristbands light up simultaneously, what technology it uses to search for the answer. The Wristbands light up together (as seen in the video) due to IR and after knowing how they worked, we need to search for the correct data stream as the answer. In the video, "yellow" was the color that lit up the whole stadium when the beat dropped and to find the data stream for yellow, we need to find a table that shows all the data streams for all colors, like a table. So after googling, i happened to find a , <a href="https://github.com/danielweidman/flipper-pixmob-ir-codes/blob/main/pixmob_all_colors.ir">github link</a> and through that, i found this:
+                        <code>
+                        name: YEL
+                        type: raw
+                        frequency: 38000
+                        duty_cycle: 0.330000
+                        data: "<span class="spoiler" onclick="this.classList.toggle('revealed')">1400 700 700 700 700 1400 2800 700 2100 700 700 700 1400 700 1400 1400 2800 1400 2800 700</span>"
+                        </code>
+                        
+                        and here you go, the answer of the final question of the challenge is right in-front of your eyes.
+                        <img src="flag.png" class="blog-image">
+                        
+                        Thank you for reading my write-up and i hope you have a good day :)
+                    </span>
+                </p>
                 <a href="#" class="read-more">Read More</a>
             </article>
 
             <article class="blog-post">
                 <h2>The Art of Simple Living</h2>
                 <div class="post-meta">Posted on March 10, 2024</div>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
+                <p>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...
+                    <span class="hidden-text" style="display: none;">
+                        More content about simple living.
+                    </span>
+                </p>
                 <a href="#" class="read-more">Read More</a>
             </article>
 
             <article class="blog-post">
                 <h2>Minimalist Design Principles</h2>
                 <div class="post-meta">Posted on March 5, 2024</div>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</p>
+                <p>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...
+                    <span class="hidden-text" style="display: none;">
+                        Additional details on minimalist design principles.
+                    </span>
+                </p>
                 <a href="#" class="read-more">Read More</a>
             </article>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 MiniBlog. All rights reserved.</p>
+        <p>&copy; 2025 Skyeline. All rights reserved for mango lovers</p>
     </footer>
 </body>
 </html>
