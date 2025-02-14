@@ -71,6 +71,9 @@ main {
 code {
     font-size: 1.3em; /* Slightly larger */
 }
+code2{
+    font-size: 0.9em; /*slightly smaller */
+}
 
 /* Hero section */
 .hero {
